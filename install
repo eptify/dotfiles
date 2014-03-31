@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Install vim
+sudo apt-get install vim
+
 # Install gnome terminal color scheme
 sessionfile=`find "${HOME}/.dbus/session-bus/" -type f`
 export `grep "DBUS_SESSION_BUS_ADDRESS" "${sessionfile}" | sed '/^#/d'`
