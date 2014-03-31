@@ -6,6 +6,14 @@ export `grep "DBUS_SESSION_BUS_ADDRESS" "${sessionfile}" | sed '/^#/d'`
 
 gconftool-2 --load gnome-terminal-conf.xml 
 
+# Install dotfiles
+dir=~/dotfiles
+files="bashrc haskeline inputrc tmux.conf vimrc"
+for file in $files; do
+    mv ~/.$file old
+    ln -s $dir/$file ~/.$file
+done
+
 # Install vundle
 git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
 vim +BundleInstall +qall
